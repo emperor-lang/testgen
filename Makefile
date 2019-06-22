@@ -8,10 +8,19 @@ CYTHON := cython3
 CYTHONFLAGS := --embed -X language_level=3
 EXECUTABLE_INSTALL_LOCATION := /usr/bin/testgen
 
-.DEFAULT_GOAL := all
+.DEFAULT_GOAL := testgen
 
-all: testgen;
+all: testgen testgen-tester;
 .PHONY: all
+
+test: testgen-tester;
+.PHONY: test
+
+testgen-tester: testgen-tester.c
+	$(CC) -Wall -Wextra -Werror -Wpedantic -pedantic-errors -g $^ -o $@
+
+testgen-tester.c: ./testgen ./spec.json
+	./testgen <./spec.json > testgen-tester.c
 
 testgen: testgen.py.c
 	$(CC) $(CFLAGS) $^ -o $@ $(CLIBS)
