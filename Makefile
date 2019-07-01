@@ -36,15 +36,6 @@ install: testgen
 	sudo install testgen $(EXECUTABLE_INSTALL_LOCATION)
 
 clean:
-	-@$(RM) argparser			2>/dev/null || true
-	-@$(RM) arggen 				2>/dev/null || true
-	-@$(RM) arggen.py.c			2>/dev/null || true
-	-@$(RM) test				2>/dev/null || true
-	-@$(RM) *.hi				2>/dev/null || true
-	-@$(RM) *.o					2>/dev/null || true
-	-@$(RM) args.hs				2>/dev/null || true
-	-@$(RM) args				2>/dev/null || true
-	-@$(RM) test_c				2>/dev/null || true
-	-@$(RM) t					2>/dev/null || true
-	-@$(RM) t.c					2>/dev/null || true
-	-@$(RM) tester_arg_parser.h	2>/dev/null || true
+	-@$(RM) testgen				2>/dev/null || true
+	-@$(RM) *.py.c				2>/dev/null || true
+	# -@$(RM) example-test		2>/dev/null || true
